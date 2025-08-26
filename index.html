@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log Book</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 600px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .form-container::before {
+            content: '';
+            display: block;
+            height: 15px;
+            background-color: #d5fe9d;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        h1 {
+            font-weight: bold;
+            color: black;
+            text-align: center;
+        }
+        h5 {
+            font-weight: 80;
+            text-align: center;
+            color: black;
+        }
+        label, input, select, option {
+            color: black;
+            font-family: 'Poppins', sans-serif;
+        }
+        input[type="text"], input[type="date"], select {
+            background-color: #f0f0f0;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .submit-button {
+            background-color: #d5fe9d;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 100%;
+        }
+        .footer {
+            text-align: left;
+            margin-top: 20px;
+            color: black;
+            font-family: 'Poppins', sans-serif;
+            font-size: 10px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        async function fetchIP() {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            document.getElementById('ipField').value = data.ip;
+        }
+
+        window.onload = function() {
+            fetchIP();
+        };
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Log Book</h1>
+        <h5>Undaunted Mission Control Center</h5>
+        <form id="myForm" action="https://script.google.com/macros/s/AKfycbzwVFH2RKpmmuaWd4X_hMk_BgDVBkULX2jehRdld5LMJNJxJVAQmdHmuyd8pVb5gYvMxQ/exec" method="POST">
+            
+            <label for="shiftfield"><b>Shift Date:</b></label>
+            <input type="date" id="shiftfield" name="shiftDate"><br><br>
+
+            <label for="emaildropdown"><b>Agent Name</b></label><br>
+            <select id="emaildropdown" name="emaildropdown" required>
+                <option value="Ralph Lawrence Villamor">Ralph</option>
+                <option value="Dalyn Pawaan">Dalyn</option>
+                <option value="Laurice Adventurado">Sai</option>
+                <option value="Remus Alfajarado">Remus</option>
+                <option value="Ma. Antoinette Garce">Netty</option>
+                <option value="Lou Van Erick Piansay">Lou Van</option>
+                <option value="Vince Javier">Vince</option>				
+                <option value="Jazer Demdam">Jazer</option>				
+                <option value="Prince Elardo">Prince</option>
+                <option value="Drein Kyle Ponsaran">Drein</option>
+                <option value="Reylan Sumagaysay">Reylan</option>
+                <option value="Kristoffer Kim Balbanida">Kristoffer Kim</option>
+                <option value="Laurence Lamera">Laurence</option>
+                <option value="Anec Jun Monreal">Anec Jun</option>
+                <option value="Neil Sumayang">Neil</option>
+                <option value="Ciane Francis Villegas">Ciane</option>
+                <option value="Mark John Torralba">Mark John</option>
+                <option value="Karlos Nicolas Mendoza">Karlos</option>
+           </select>      
+
+            <br><br>
+            <label for="statusdropdown"><b>Status</b></label><br>
+            <select id="statusdropdown" name="statusdropdown" required>
+                <option value="SHIFT START">SHIFT START</option>
+                <option value="BREAK1 START">BREAK1 START</option>
+                <option value="BREAK1 END">BREAK1 END</option>
+                <option value="LUNCH START">LUNCH START</option>
+                <option value="LUNCH END">LUNCH END</option>
+                <option value="BREAK2 START">BREAK2 START</option>
+                <option value="BREAK2 END">BREAK2 END</option>
+                <option value="SHIFT END">SHIFT END</option>     
+            </select>      
+
+            <br><br>
+            <input type="hidden" id="ipField" name="ipAddress">
+            
+            <input type="submit" value="Submit" class="submit-button">
+        </form>
+        <div class="footer">
+            Created by:<br>Ralph Lawrence Villamor  |  Team Lead - Mission Control Center<br><br>
+        </div>
+    </div>
+</body>
+</html>
